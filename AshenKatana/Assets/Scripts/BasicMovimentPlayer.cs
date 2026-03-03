@@ -23,6 +23,10 @@ public class BasicMovimentPlayer : MonoBehaviour {
     private int attackingHash = Animator.StringToHash("attacking");
 
 
+    [SerializeField] private AudioSource stepsAudioSource;
+    [SerializeField] private AudioClip[] stepsAudioClip;
+    [SerializeField] private AudioClip[] JumpAudioClip;
+    [SerializeField] private AudioSource JumpAudioSource;
 
 
 
@@ -34,7 +38,7 @@ public class BasicMovimentPlayer : MonoBehaviour {
 
 
     void Update() {
-       
+
         Attacking();
 
         horizontalInput = Input.GetAxis("Horizontal");
@@ -62,8 +66,18 @@ public class BasicMovimentPlayer : MonoBehaviour {
 
 
     private void Attacking() {
-       if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) {
             animator.SetTrigger(attackingHash);
         }
+    }
+
+
+    private void Steps() {
+        stepsAudioSource.PlayOneShot(stepsAudioClip[Random.Range(0, stepsAudioClip.Length)]);
+    }
+
+    private void Jump() {
+
+        JumpAudioSource.PlayOneShot(JumpAudioClip[Random.Range(0, JumpAudioClip.Length)]);
     }
 }
