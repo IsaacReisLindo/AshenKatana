@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753645597ad74de4aa43cfbc590e0067, type: 3}
+  m_Name: MissionCharacterDialogue
+  m_EditorClassIdentifier: 
+  npcName: Mission Character
+  npcPortrait: {fileID: -2887185384596672309, guid: 76a59ef996c53c64bb48fae131d5727d, type: 3}
+  dialoguesLines:
+  - Hey... is that you, Ashen Katana?
+  - I've been looking for someone like you.
+  - I have a job... something that requires precision.
+  - I need you to take care of a few targets.
+  - Quietly. No mistakes.
+  - "If you're interested, I\u2019ll mark the mission for you."
+  - What do you say?
+  autoProgressLines: 00000000000000
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voiceSound: {fileID: 8300000, guid: ac84e845673d8e74d8ae1c8d60ff7ba5, type: 3}
+  voicePitch: 1
