@@ -1,18 +1,23 @@
-using UnityEngine;
+using Cinemachine;
 using System.Collections;
+using UnityEngine;
 
 public class DummyHealth : MonoBehaviour {
     public int maxHealth = 5;
     private int currentHealth;
 
     private SpriteRenderer spriteRenderer;
+    private CinemachineImpulseSource impulseSource;
 
     void Start() {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     public void TakeDamage(int damage) {
+
+        CameraShakeManager.instance.CameraShake(impulseSource);
         currentHealth -= damage;
         StartCoroutine(FlashRed());
 

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Enemy : MonoBehaviour {
     public int maxHealth = 5;
     private int currentHealth;
     private SpriteRenderer spriteRenderer;
 
-
+    private CinemachineImpulseSource impulseSource;
 
 
 
@@ -15,6 +16,8 @@ public class Enemy : MonoBehaviour {
     void Start() {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        impulseSource = GetComponent<CinemachineImpulseSource>();   
     }
 
     // Update is called once per frame
@@ -23,6 +26,9 @@ public class Enemy : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
+
+        CameraShakeManager.instance.CameraShake(impulseSource);
+        
         currentHealth -= damage;
         StartCoroutine(FlashRed());
 

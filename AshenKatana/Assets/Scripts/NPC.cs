@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 
+
 public class NPC : MonoBehaviour, IInteractable {
     public NPCDialogue dialogueData;
     public GameObject dialoguePanel;
@@ -13,6 +14,7 @@ public class NPC : MonoBehaviour, IInteractable {
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
     private bool playerIsNear;
+    public GameObject pressEText;
 
     void Update() {
         // Se o player está perto e apertou E
@@ -26,7 +28,7 @@ public class NPC : MonoBehaviour, IInteractable {
             else if (!isTyping) {
                 NextLine();
             }
-            // Se está digitando, pula a animação (opcional)
+            // Se está digitando, pula a animação 
             else {
                 CompletarLinhaImediatamente();
             }
@@ -90,11 +92,14 @@ public class NPC : MonoBehaviour, IInteractable {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) playerIsNear = true;
+        playerIsNear = true;
+        pressEText.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             playerIsNear = false;
+            pressEText.SetActive(false);
             EndDialogue();
         }
     }
