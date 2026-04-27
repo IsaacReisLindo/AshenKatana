@@ -16,15 +16,9 @@ public class AttackHitbox : MonoBehaviour {
             Debug.Log("ACERTEI INIMIGO: " + other.name);
         }
 
-        void Start() {
-            player = GetComponentInParent<BasicMovimentPlayer>();
+       
 
-            if (player == null) {
-                Debug.LogError("PLAYER NÃO ENCONTRADO!");
-            }
-        }
     }
-
 }
 
 
